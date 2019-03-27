@@ -6,10 +6,15 @@ const port = 8000
 const router = require('./routes/router.js');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const path = require('path');
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../school-app/build')));
+
+
 app.use('/api', router)
 
 app.listen(port, function () {
