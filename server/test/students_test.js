@@ -9,14 +9,14 @@ const db = require('../db/mysqlDB.js');
 chai.use(chaiHttp);
 
 describe('/GET api/commonstudents', () => {
-    it('it should GET students of teacherken@example.com', (done) => {
+    it('it should GET students of teacherken@gmail.com', (done) => {
         chai.request(server)
             .get('/api/commonstudents')
-            .query({ teacher: 'teacherken@example.com' })
+            .query({ teacher: 'teacherken@gmail.com' })
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.success.should.be.eql(true)
-                res.body.students.length.should.be.eql(3);
+                res.body.students.length.should.be.eql(2);
                 done();
             });
     });
@@ -62,7 +62,7 @@ describe('/POST api/suspend', () => {
 describe('/POST api/retrievefornotifications', () => {
     it('it should POST and retrieve recipients', (done) => {
         let json = {
-            "teacher": "teacherken@example.com",
+            "teacher": "teacherken@gmail.com",
             "notification": "Hello students! @student_only_under_teacher_joe@gmail.com"
         }
 
@@ -71,7 +71,7 @@ describe('/POST api/retrievefornotifications', () => {
             .send(json)
             .end((err, res) => {
                 res.should.have.status(200);
-                res.body.recipients.length.should.be.eql(4);
+                res.body.recipients.length.should.be.eql(3);
                 done();
             });
     });
