@@ -18,5 +18,6 @@ Endpoints:
 2. npm test
 
 # To run frontend
+Download front-end code from: https://github.com/yiytan92/school-app-client
 1. cd into school-app
 2. npm start
